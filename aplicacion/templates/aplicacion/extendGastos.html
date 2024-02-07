@@ -1,0 +1,74 @@
+{% extends 'aplicacion/home.html' %} 
+
+
+{% block contenido %}
+<h1>Agregar Gastos:</h1>
+
+<form action="" method="post">
+    {% csrf_token %}  <!-- Clave del formulario -->
+    <table> 
+        {{form.as_table }}
+    </table>
+
+    <input type="submit" value="enviar">
+</form>
+<style>
+    h1 {
+        font-size: 24px;
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center; /* Centra el texto horizontalmente */
+    }
+
+    form {
+        width: 50%;
+        margin: 0 auto;
+    }
+
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    table, th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+
+    input[type="submit"] {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+    }
+
+    input[type="submit"] {
+        background-color: black; /* Cambia el color de fondo a negro */
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        border-radius: 5px;
+        font-size: 16px;
+        display: block; /* Hace que el botón sea un elemento de bloque */
+        margin: 20px auto; /* Centra el botón horizontalmente y agrega espacio vertical */
+    }
+    
+
+{% endblock contenido %}
+        

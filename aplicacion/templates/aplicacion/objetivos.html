@@ -1,0 +1,54 @@
+{% extends 'aplicacion/home.html' %} 
+
+
+{% block contenido %}
+
+   
+<h1> Objetivos:</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Descripcion:</th>
+            <th>monto:</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for n in objetivo %}
+        <tr>
+            <td>{{ n.descripcion}}</td>
+            <td>{{ n.monto }}</td>
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<style>
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    tr:hover {
+        background-color: #ddd;
+    }
+</style>
+        
+{% endblock contenido %}        
+
+        
