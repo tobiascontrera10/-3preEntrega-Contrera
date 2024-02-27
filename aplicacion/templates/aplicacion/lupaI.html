@@ -1,0 +1,14 @@
+{% extends 'aplicacion/home.html' %} 
+
+
+
+{% block contenido %}
+<h1>Buscador de gastos</h1>
+<form action="{% url 'buscadorI' %}" method="get"> 
+    {% csrf_token %}
+
+    <p>Buscador: <input type="text" name="lupaI" id="lupaI"</p>
+    <input type="submit" value="enviar"> 
+</form>
+
+{% endblock contenido %}

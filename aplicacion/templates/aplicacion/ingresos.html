@@ -3,12 +3,16 @@
 
 {% block contenido %}
 <h1> Ingresos del mes</h1>
+<div class="d-grid gap-2">
+    <a class="btn btn-primary" href="{% url 'lupaI' %}" role="button">Buscador de ingresos</a>
+</div>
 
 <table>
     <thead>
         <tr>
             <th>ingreso</th>
             <th>monto</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -16,10 +20,39 @@
         <tr>
             <td>{{ n.ingreso }}</td>
             <td>{{ n.monto }}</td>
+            <td>
+            
+                <a
+                  href="{% url 'actualizarI' n.id %}"
+                  class="btn btn-primary"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+                </a>
+                <a
+                  href="{% url 'borrarI' n.id %}"
+                  class="btn btn-danger"
+                  style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                  ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+                </a>                
+              </td>
+            
 
         </tr>
         {% endfor %}
     </tbody>
+</table>
+<!-- boton de agregar -->
+<table> 
+    <tr> 
+        <td width="200"> <h2>Agregar ingreso</h2></td>
+        <td>
+            <a 
+            href="{% url 'extendIngresos' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i> 
+            </a>
+        </td>
+    </tr>
 </table>
 
 <style>

@@ -4,11 +4,16 @@
 
 {% block contenido %}
 <h1>Listado de Gastos</h1>
+<div class="d-grid gap-2">
+    <a class="btn btn-primary" href="{% url 'lupa' %}" role="button">Buscador de gastos</a>
+</div>
 <table>
     <thead>
         <tr>
             <th>Descripcion</th>
             <th>Monto</th>
+            <th>fecha</th>
+            <th>Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -16,10 +21,41 @@
         <tr>
             <td>{{n.descripcion}}</td>
             <td>{{n.monto}}</td>
+            <td>{{n.fecha}}</td>
+            <td>
+            
+              <a
+                href="{% url 'actualizar' n.id %}"
+                class="btn btn-primary"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-edit fa-sm" title="Edit Record"></i>
+              </a>
+              <a
+                href="{% url 'borrar' n.id %}"
+                class="btn btn-danger"
+                style="--bs-btn-padding-y: .25rem; --bs-btn-padding-x: .5rem; --bs-btn-font-size: .75rem;"
+                ><i class="fa fa-trash fa-sm" title="Delete Record"></i>
+              </a>                
+            </td>
+
         </tr>
         {% endfor %}
     </tbody>
 </table>
+<!-- boton de agregar -->
+<table> 
+    <tr> 
+        <td width="200"> <h2>Agregar gastos</h2></td>
+        <td>
+            <a 
+            href="{% url 'extendGastos' %}"
+            class="btn btn-primary btn-sm"
+            ><i class="fa fa-plus fa-lg" title="New Record"> </i> 
+            </a>
+        </td>
+    </tr>
+</table>
+
 <style>
     table {
         width: 100%;

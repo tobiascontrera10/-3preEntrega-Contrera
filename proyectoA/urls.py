@@ -15,11 +15,16 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-
 from django.urls import path, include # importamos el include 
+from proyectoA import settings  
+from django.conf.urls.static import static  #static es la carpeta donde tengo los assets
 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('aplicacion/', include('aplicacion.urls')) #asi es la forma de delegar las rutas de la aplicacion a la misma, 
+    #Url de la aplicacion:
+    path('aplicacion/', include('aplicacion.urls')) 
 ]
+
+#Ruta de media: 
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)  
